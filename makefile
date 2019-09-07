@@ -11,6 +11,8 @@ build:
 	yarn
 	@echo "$(P) [webpack] build client side bundles"
 	NODE_ENV=production $(BIN_DIR)/webpack --config webpack.config.js --progress --colors --mode production
+	@echo "move dist files to root"
+	cp dist/* ./
 
 dev:
 	@echo "Check dependencies of the project"

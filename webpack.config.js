@@ -36,11 +36,20 @@ if (NODE_ENV === 'production') {
   plugins.push(
     new webpack.HotModuleReplacementPlugin()
   )
+  plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    })
+  )
 }
+
+const srcEntry = `./${TARGET}/${SOURCE_DIRNAME}/main.js`
 
 const config = {
   mode: isProduction ? 'production' : 'development',
-  entry: `./${TARGET}/${SOURCE_DIRNAME}/main.js`,
+  entry: isProduction ? srcEntry : [srcEntry, 'preact/debug'],
   output: {
     path: path.resolve(__dirname, TARGET, OUTPUT_DIRNAME),
     filename: '[name]-[hash].js',
