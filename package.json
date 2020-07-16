@@ -59,7 +59,7 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "preact": "^8.3.1",
     "react-dom": "^16.8.4",
     "styled-components": "3"
